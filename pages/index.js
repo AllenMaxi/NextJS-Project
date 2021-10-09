@@ -3,9 +3,16 @@ import Link from "next/link";
 import AppLayout from "../components/AppLayout";
 import Button from "../components/Button/Button";
 import GitHub from "../components/Icon/Icon";
+import { loginWithGitHub } from "../firebase/client";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  function handleLogin() {
+    loginWithGitHub()
+      .then((user) => console.log(user))
+      .catch((err) => console.log(err));
+  }
+
   return (
     <>
       <AppLayout>
@@ -16,7 +23,7 @@ export default function Home() {
             Everything about Development
           </h3>
           <div>
-            <Button>
+            <Button onClick={handleLogin}>
               <GitHub fill="#fff" width={24} height={24} />
               Login with Github
             </Button>

@@ -5,6 +5,8 @@ const Button = ({ children, onClick }) => {
       <style jsx>
         {`
           button {
+            display: flex;
+            align-items: center;
             border: 0;
             background-color: black;
             color: white;
@@ -13,6 +15,9 @@ const Button = ({ children, onClick }) => {
             cursor: pointer;
             font-size: 8px 10px;
             transition: opacity 0.3s ease;
+          }
+          button > :global(svg) {
+            margin-right: 10px;
           }
           button:hover {
             opacity: 0.8;
