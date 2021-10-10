@@ -13,6 +13,26 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+function handlerUser(user) {
+  if (user) {
+    const { displayName, photoURL, email } = user;
+    return {
+      avatar: photoURL,
+      username: displayName,
+      email,
+    };
+  }
+}
+
+export const authChange = (onChange) => {
+  const auth = getAuth();
+  return auth.onAuthStateChanged((user) => {
+    console.log(user);
+    const normalizedUser = handlerUser(user);
+    onChange(normalizedUser);
+  });
+};
+
 export const loginWithGitHub = () => {
   const auth = getAuth();
   const provider = new GithubAuthProvider();

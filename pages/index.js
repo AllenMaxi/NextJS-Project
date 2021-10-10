@@ -1,17 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import AppLayout from "../components/AppLayout";
+import Avatar from "../components/Avatar/Avatar";
 import Button from "../components/Button/Button";
 import GitHub from "../components/Icon/Icon";
-import { loginWithGitHub } from "../firebase/client";
+import { loginWithGitHub, authChange } from "../firebase/client";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const [user, setUser] = useState(undefined);
+
+  console.log(user);
+
   function handleLogin() {
     loginWithGitHub()
-      .then((user) => console.log(user))
+      .then(setUser)
       .catch((err) => console.log(err));
   }
+
+  useEffect(() => {
+    authChange(setUser);
+  }, []);
 
   return (
     <>
@@ -23,10 +33,19 @@ export default function Home() {
             Everything about Development
           </h3>
           <div>
-            <Button onClick={handleLogin}>
-              <GitHub fill="#fff" width={24} height={24} />
-              Login with Github
-            </Button>
+            {user === null && (
+              <Button onClick={handleLogin}>
+                <GitHub fill="#fff" width={24} height={24} />
+                Login with Github
+              </Button>
+            )}{" "}
+            {user && user.avatar && (
+              <Avatar
+                avatar={user.avatar}
+                username={user.username}
+                email={user.email}
+              />
+            )}
           </div>
         </section>
       </AppLayout>

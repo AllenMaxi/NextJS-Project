@@ -11,3 +11,13 @@
 .content__subtitle {
   color: #082c7990;
 }
+.image{
+  border-radius: 50%;
+ width: 150px;
+ height: 150px;
+}
+.user__info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
