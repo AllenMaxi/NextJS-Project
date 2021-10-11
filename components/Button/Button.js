@@ -3,7 +3,7 @@ const Button = ({ children, onClick }) => {
     <>
       <button onClick={onClick}>{children}</button>
       <style jsx>
-        {`
+        {` 
           button {
             display: flex;
             align-items: center;

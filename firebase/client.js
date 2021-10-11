@@ -1,3 +1,5 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable semi */
 import * as firebase from "firebase/app";
 import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
 

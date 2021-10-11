@@ -1,5 +1,6 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable semi */
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import AppLayout from "../components/AppLayout";
 import Avatar from "../components/Avatar/Avatar";
