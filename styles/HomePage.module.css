@@ -1,0 +1,26 @@
+.header__homePage {
+  align-items: center;
+  border-bottom: 4px solid #ccc;
+  height: 49px;
+  display: flex;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+.header__homePage h2{
+    font-size: 21px;
+    font-weight: 800;
+}
+.nav__homePage {
+  border-bottom: 4px solid #ccc;
+  bottom: 0;
+  position: sticky;
+  height: 49px;
+  width: 100%;
+}
+.section__homePage {
+    padding-top: 30px;
+}
+.nextwit {
+  margin: .5rem;
+}

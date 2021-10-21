@@ -16,7 +16,19 @@ export default function Home() {
 
   function handleLogin() {
     loginWithGitHub()
-      .then(setUser)
+      .then((user) => {
+        console.log(user);
+        const {
+          photoURL: avatar,
+          displayName: username,
+          email: email,
+        } = user.user;
+        setUser({
+          avatar,
+          username,
+          email,
+        });
+      })
       .catch((err) => console.log(err));
   }
 
@@ -40,11 +52,12 @@ export default function Home() {
                 Login with Github
               </Button>
             )}{" "}
-            {user && user.avatar && (
+            {user?.avatar && (
               <Avatar
                 avatar={user.avatar}
                 username={user.username}
                 email={user.email}
+                text={user.username}
               />
             )}
           </div>

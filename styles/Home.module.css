@@ -12,12 +12,18 @@
   color: #082c7990;
 }
 .image{
-  border-radius: 50%;
- width: 150px;
- height: 150px;
+ margin-top: 10px;
+ margin-right: 10px;
+ border-radius: 50%;
+ width: 49px;
+ height:49px;
 }
 .user__info{
+  padding: 1rem;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+.user__head {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  margin-bottom: 10px;
 }

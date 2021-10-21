@@ -30,7 +30,7 @@ export const authChange = (onChange) => {
   const auth = getAuth();
   return auth.onAuthStateChanged((user) => {
     console.log(user);
-    const normalizedUser = handlerUser(user);
+    const normalizedUser = user ? handlerUser(user) : null;
     onChange(normalizedUser);
   });
 };
