@@ -1,5 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable semi */
+import { useRouter } from "next/dist/client/router";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import AppLayout from "../components/AppLayout";
@@ -11,31 +12,19 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const [user, setUser] = useState(undefined);
-
-  console.log(user);
+  const router = useRouter();
 
   function handleLogin() {
-    loginWithGitHub()
-      .then((user) => {
-        console.log(user);
-        const {
-          photoURL: avatar,
-          displayName: username,
-          email: email,
-        } = user.user;
-        setUser({
-          avatar,
-          username,
-          email,
-        });
-      })
-      .catch((err) => console.log(err));
+    loginWithGitHub().catch((err) => console.log(err));
   }
 
   useEffect(() => {
     authChange(setUser);
   }, []);
 
+  useEffect(() => {
+    user && router.replace("/home");
+  }, [user]);
   return (
     <>
       <AppLayout>
@@ -52,14 +41,7 @@ export default function Home() {
                 Login with Github
               </Button>
             )}{" "}
-            {user?.avatar && (
-              <Avatar
-                avatar={user.avatar}
-                username={user.username}
-                email={user.email}
-                text={user.username}
-              />
-            )}
+            {user === undefined && <img src="spinner.gif" alt="spinner" />}
           </div>
         </section>
       </AppLayout>

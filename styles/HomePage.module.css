@@ -1,6 +1,8 @@
 .header__homePage {
   align-items: center;
-  border-bottom: 4px solid #ccc;
+  border-bottom: 3px solid rgb(239, 241, 241);
+  background-color: #ffffffaa;
+  backdrop-filter: blur(5px);
   height: 49px;
   display: flex;
   position: sticky;
@@ -12,15 +14,14 @@
     font-weight: 800;
 }
 .nav__homePage {
-  border-bottom: 4px solid #ccc;
+  background: #fff;
+  border-bottom: 3px solid rgb(217, 221, 223);
   bottom: 0;
   position: sticky;
   height: 49px;
   width: 100%;
 }
-.section__homePage {
-    padding-top: 30px;
-}
+
 .nextwit {
   margin: .5rem;
 }
